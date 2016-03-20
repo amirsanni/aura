@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <title><?=$pageTitle?></title>    
+
+        <!-- Web Fonts -->        
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Raleway:600,500,300,400">
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700">
+        
+        <!--favicon--->
+        <link href="favicon.ico" type="image/x-icon" rel="icon">
+        <link href="favicon.ico" type="image/x-icon" rel="shortcut icon">
+        
+        <!---CSS-->
+        <link rel="stylesheet" type="text/css" href="<?=base_url()?>public/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="<?=base_url()?>public/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/revolution/css/style.css">
+        <link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/extralayers.css">
+        <link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/revolution/rs-plugin/css/settings.css">
+        <link rel="owl.theme"  type="text/css" href="<?=base_url()?>public/css/owl.carousel.css">
+        <link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/cubeportfolio.min.css">
+        <link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/jquery.mmenu.css">
+        <link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/style.css">
+        <link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/videostyle.css">
+        <link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/main.css">
+        
+        <!---JS--->
+        <script src="<?=base_url()?>public/js/jquery.min.js"></script>
+		<script src="<?=base_url()?>/public/bootstrap/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+	<div class="dropdown">
+		<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Dropdown
+    <span class="caret"></span>
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+	<form id='signupForm' name="signupForm">
+		<div class="row">
+			<div class="col-sm-6 form-group-sm">
+				<label for='firstName' class="control-label">First Name</label>
+				<input type="text" id='firstName' class="form-control checkField" placeholder="First Name" autofocus>
+				<span class="help-block errMsg" id="firstNameErr"></span>
+			</div>
+			<div class="col-sm-6 form-group-sm">
+				<label for='lastName' class="control-label">Last Name</label>
+				<input type="text" id='lastName' class="form-control checkField" placeholder="Last Name">
+				<span class="help-block errMsg" id="lastNameErr"></span>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-sm-6 form-group-sm">
+				<label for='emailOrig' class="control-label">E-mail</label>
+				<input type="email" id='emailOrig' class="form-control checkField" placeholder="E-mail">
+				<span class="help-block errMsg" id="emailOrigErr"></span>
+			</div>
+			
+			<div class="col-sm-6 form-group-sm">
+				<label for='emailDup' class="control-label">Re-type E-mail</label>
+				<input type="email" id='emailDup' class="form-control" placeholder="Re-type E-mail">
+				<span class="help-block errMsg" id="emailDupErr"></span>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-sm-6 form-group-sm">
+				<label for='pwordOrig' class="control-label">Password</label>
+				<input type="password" id='pwordOrig' class="form-control checkField" placeholder="Password">
+				<span class="help-block errMsg" id="pwordOrigErr"></span>
+			</div>
+			<div class="col-sm-6 form-group-sm">
+				<label for='pwordDup' class="control-label">Re-type Password</label>
+				<input type="password" id='pwordDup' class="form-control" placeholder="Re-type Password">
+				<span class="help-block errMsg" id="pwordDupErr"></span>
+			</div>
+		</div>
+	</form>
+	<div class="modal-footer">
+                        <div class="pull-left">Have an account? <a id='loginClk' class="pointer text-info"> Log in </a></div>
+                        <button type='button' id='signupSubmit' class="btn btn-primary">Sign Up</button>
+                    </div>
+</div>
+</div>
+</body>
+</html>

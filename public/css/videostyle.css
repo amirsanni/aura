@@ -1,0 +1,21 @@
+/* ----------------------------------------------------
+	1) Video background
+------------------------------------------------------- */
+
+video#bgVideo {
+  position: absolute; /* Play the video in full screen mode*/
+  top: 0px;
+  left: 0px;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1; /* Put the video behind all other elements*/
+}
+
+  video {
+    display:none;
+  }
+  body{
+	background: url('../img/background/blue_dotwhite.jpg');  /*blue_dotwhite or blue-dot*/
+	background-repeat: no-repeat;
+	background-size: cover;
+	  }

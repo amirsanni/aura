@@ -1,0 +1,28 @@
+/* 
+    Created on : 28-Jan-2016, 14:30:56
+    Author     : Ameer
+*/
+
+.pointer{
+    cursor: pointer
+}
+
+.errMsg{
+    color:red; font-size:10px 
+}
+
+.pwell {
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+
+.signLogModal{
+    font-size:11px;
+    font-family:monospace
+}

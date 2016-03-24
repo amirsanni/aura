@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.3.11
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 13, 2016 at 12:05 AM
--- Server version: 5.6.24
--- PHP Version: 5.6.8
+-- Generation Time: Mar 24, 2016 at 08:39 AM
+-- Server version: 10.1.9-MariaDB
+-- PHP Version: 7.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `design_aura`
@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `admin`
 --
 
-CREATE TABLE IF NOT EXISTS `admin` (
+CREATE TABLE `admin` (
   `id` int(3) NOT NULL,
   `first_name` varchar(25) NOT NULL,
   `last_name` varchar(25) NOT NULL,
@@ -40,52 +40,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `last_edited` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `account_status` char(1) NOT NULL DEFAULT '1',
   `deleted` char(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `admin`
---
-
-INSERT INTO `admin` (`id`, `first_name`, `last_name`, `email`, `mobile1`, `mobile2`, `password`, `role`, `created_on`, `last_login`, `last_edited`, `account_status`, `deleted`) VALUES
-(1, 'Amir', 'Sanni', 'amirsanni@gmail.com', '07030167606', '07086201801', '$2y$10$7x6iulhLPMN8uJCiXo0Nu.0yWHK7nhZAZBywKZLS.I6fP5w6w/9jO', 'Super', '2016-01-31 17:57:48', '2016-02-05 02:58:33', '2016-02-05 01:58:33', '1', '0'),
-(2, 'Abdulbasit', 'Adebayo', 'abdulbazit@yahoo.ca', '08067540594', '', '$2y$10$K6DZIZWWulbJZRavEK.p0OufUBcxZt49w/ZnsALEun4B3cRzXblUG', 'Super', '2016-02-01 00:14:54', '2016-02-01 18:46:49', '2016-02-01 17:47:48', '1', '0'),
-(5, 'Demo', 'Admin', 'demoadmin@aurainc.com', '08023123458', '', '$2y$10$fsnNFbM5OmnZOWLZY.0ffOMqb.jYR6r4v9WavW75e3ey83Q2z9NQO', 'Basic', '2016-02-01 09:53:14', '0000-00-00 00:00:00', '2016-02-01 17:47:48', '1', '0'),
-(6, 'Zaynab', 'Jibril', 'zainab@gmail.com', '08066723504', '', '$2y$10$mm0Q9umjASzsRLcTrjWEfe.i4Zy5L4BTQQ7KMIsrKDxB/WqS6O.iW', 'Basic', '2016-02-01 15:07:56', '0000-00-00 00:00:00', '2016-02-01 17:47:48', '1', '0');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `agents`
---
-
-CREATE TABLE IF NOT EXISTS `agents` (
-  `agent_id` int(7) NOT NULL,
-  `company_name` varchar(50) NOT NULL,
-  `contact_person` varchar(60) NOT NULL,
-  `mobile_phone` varchar(15) NOT NULL,
-  `office_phone` varchar(15) NOT NULL,
-  `email` varchar(55) NOT NULL,
-  `password` char(60) NOT NULL,
-  `logo` varchar(200) NOT NULL,
-  `street` varchar(50) NOT NULL,
-  `city` varchar(25) NOT NULL,
-  `state` varchar(25) NOT NULL,
-  `country` varchar(25) NOT NULL DEFAULT 'Nigeria',
-  `created_on` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `agents`
---
-
-INSERT INTO `agents` (`agent_id`, `company_name`, `contact_person`, `mobile_phone`, `office_phone`, `email`, `password`, `logo`, `street`, `city`, `state`, `country`, `created_on`) VALUES
-(5, 'Trojanbadim and co', 'badim', '806754059', '111', 'just.4ualone@hotmail.com', '', '‰PNG\r\n\Z\n\0\0\0\rIHDR\0\0\0–\0\0\0i\0\0\0ØÅÚ.\0\0\0	pHYs\0\0\0\0\0šœ\0\09¤iTXtXML:com.adobe.xmp\0\0\0\0\0<?xpacket begin="ï»¿" id="W5M0MpCehiHzreSzNTczkc9d"?>\n<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.', 'sumonu street', 'lagos', 'lagos', 'Nigeria', '2014-12-29 10:54:38'),
-(6, 'tdonbd', 't don', '816708691', '2201991', 'tdon@gmail.com', '', '‰PNG\r\n\Z\n\0\0\0\rIHDR\0\0\0i\0\0\0i\0\0\09‚\r:\0\0\0	pHYs\0\0\0\0\0šœ\0\09¤iTXtXML:com.adobe.xmp\0\0\0\0\0<?xpacket begin="ï»¿" id="W5M0MpCehiHzreSzNTczkc9d"?>\n<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.', '6 samson jamiu street', 'abuja', 'abuja', 'Nigeria', '2014-12-29 10:54:38'),
-(7, '', 'Amir Sanni', '0', '0', 'amirsanni@gmail.com', '$2y$10$sda0y/3GYx6Z0REDpikFQuKotVhA7s7c/VwoK7M4uywtVM14mHKge', '', '', '', '', 'Nigeria', '2016-01-30 14:08:41'),
-(8, '', 'Aayatudeen Olalekan', '0', '0', 'rinolee@gmail.com', '$2y$10$qIlAFQ/.u0yZ5GeWapcs2.LnGPSPj9HUA9Xho6YlT41oINQRbGx32', '', '', '', '', 'Nigeria', '2016-01-30 14:10:19'),
-(9, '', 'Amir Olalekan', '0', '0', 'hamoas4gunners@yahoo.com', '$2y$10$qilCgoRwNlechJpDWHxOgOSuwRkqjO7S2Haw6UQroM70.8zuO4Cvy', '', '', '', '', 'Nigeria', '2016-01-30 15:25:52'),
-(10, '', 'Hakeem Okoh', '', '', 'get2ak@rocketmail.com', '$2y$10$67U5INsHYw0nqfsrH52Hzu5OdeMZg4obrTsVmVCl/DFXenKCzualu', '', '', '', '', 'Nigeria', '2016-01-30 15:29:12'),
-(11, '', 'Adebayo Abdulbasit', '', '', 'abdulbazit@yahoo.ca', '$2y$10$tpWs8J9siizDAIKFeFCoi.ORRyXcU9a7/yrLWxlISL6Lw/xanbW12', '', '', '', '', 'Nigeria', '2016-01-30 16:25:18');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -93,124 +48,181 @@ INSERT INTO `agents` (`agent_id`, `company_name`, `contact_person`, `mobile_phon
 -- Table structure for table `aura_admin_sessions`
 --
 
-CREATE TABLE IF NOT EXISTS `aura_admin_sessions` (
+CREATE TABLE `aura_admin_sessions` (
   `id` varchar(40) NOT NULL,
   `ip_address` varchar(45) NOT NULL,
-  `timestamp` int(10) unsigned NOT NULL DEFAULT '0',
+  `timestamp` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `data` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `aura_admin_sessions`
+-- Table structure for table `blogs`
 --
 
-INSERT INTO `aura_admin_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
-('88729aec0570894f9468d7d2f427176c53d2b583', '::1', 1454311730, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343331313530363b61646d696e5f69647c733a313a2231223b61646d696e5f656d61696c7c733a31393a22616d697273616e6e6940676d61696c2e636f6d223b61646d696e5f726f6c657c733a353a227375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31303a22416d69722053616e6e69223b),
-('42fd4d964c5631c63745ddf5c8c6bfb12f76cc9c', '::1', 1454311832, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343331313833323b61646d696e5f69647c733a313a2231223b61646d696e5f656d61696c7c733a31393a22616d697273616e6e6940676d61696c2e636f6d223b61646d696e5f726f6c657c733a353a227375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31303a22416d69722053616e6e69223b),
-('35d9b3ccf1c6478734eb98a51e7691537188a6e1', '::1', 1454312400, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343331323136393b61646d696e5f69647c733a313a2231223b61646d696e5f656d61696c7c733a31393a22616d697273616e6e6940676d61696c2e636f6d223b61646d696e5f726f6c657c733a353a227375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31303a22416d69722053616e6e69223b),
-('29e780ee9617e3e088d59f0569f9781c1d226140', '::1', 1454313577, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343331333239373b61646d696e5f69647c733a313a2231223b61646d696e5f656d61696c7c733a31393a22616d697273616e6e6940676d61696c2e636f6d223b61646d696e5f726f6c657c733a353a227375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31303a22416d69722053616e6e69223b),
-('ab752d1571100ccacc2e0ca139fd0881fd44028e', '::1', 1454313940, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343331333636363b61646d696e5f69647c733a313a2231223b61646d696e5f656d61696c7c733a31393a22616d697273616e6e6940676d61696c2e636f6d223b61646d696e5f726f6c657c733a353a227375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31303a22416d69722053616e6e69223b),
-('b4d5bdc07fcf151e368f9ce551105bc8ae922fbd', '::1', 1454314419, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343331343137383b61646d696e5f69647c733a313a2231223b61646d696e5f656d61696c7c733a31393a22616d697273616e6e6940676d61696c2e636f6d223b61646d696e5f726f6c657c733a353a227375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31303a22416d69722053616e6e69223b),
-('ca1dad0907d035990ce43e87533e5566077c7295', '::1', 1454314832, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343331343536393b61646d696e5f69647c733a313a2231223b61646d696e5f656d61696c7c733a31393a22616d697273616e6e6940676d61696c2e636f6d223b61646d696e5f726f6c657c733a353a227375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31303a22416d69722053616e6e69223b),
-('d4bacf5b9a62a40c81bfee97283b7fdd15fe5820', '::1', 1454315084, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343331343933353b61646d696e5f69647c733a313a2231223b61646d696e5f656d61696c7c733a31393a22616d697273616e6e6940676d61696c2e636f6d223b61646d696e5f726f6c657c733a353a227375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31303a22416d69722053616e6e69223b),
-('62ef0c72843774d55242e8635f8ee603ccca37cb', '::1', 1454315663, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343331353635303b61646d696e5f69647c733a313a2232223b61646d696e5f656d61696c7c733a31393a22616264756c62617a6974407961686f6f2e6361223b61646d696e5f726f6c657c733a353a227375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31383a22416264756c6261736974204164656261796f223b),
-('dcac1c879a9dd3ee2324ef2b034835fb47db1341', '::1', 1454316267, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343331363034343b61646d696e5f69647c733a313a2232223b61646d696e5f656d61696c7c733a31393a22616264756c62617a6974407961686f6f2e6361223b61646d696e5f726f6c657c733a353a227375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31383a22416264756c6261736974204164656261796f223b),
-('a510ba22fcb7fa961035f0eb34578f18b994e9db', '::1', 1454316802, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343331363433333b61646d696e5f69647c733a313a2232223b61646d696e5f656d61696c7c733a31393a22616264756c62617a6974407961686f6f2e6361223b61646d696e5f726f6c657c733a353a227375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31383a22416264756c6261736974204164656261796f223b),
-('c525ad1a09780b254d069510d0d6d6c48f72e5c1', '::1', 1454317074, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343331363830363b61646d696e5f69647c733a313a2232223b61646d696e5f656d61696c7c733a31393a22616264756c62617a6974407961686f6f2e6361223b61646d696e5f726f6c657c733a353a227375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31383a22416264756c6261736974204164656261796f223b),
-('76112f66bfa18450dbd3094c31d3e8af5816618c', '::1', 1454317209, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343331373130393b61646d696e5f69647c733a313a2232223b61646d696e5f656d61696c7c733a31393a22616264756c62617a6974407961686f6f2e6361223b61646d696e5f726f6c657c733a353a227375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31383a22416264756c6261736974204164656261796f223b),
-('ab7532b98aaadc86d21e04ef8d5c5c9e0601b7d2', '::1', 1454317884, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343331373635323b61646d696e5f69647c733a313a2232223b61646d696e5f656d61696c7c733a31393a22616264756c62617a6974407961686f6f2e6361223b61646d696e5f726f6c657c733a353a227375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31383a22416264756c6261736974204164656261796f223b),
-('a9d5549307bf057083b44cf332602f5b44f4b6cb', '::1', 1454318492, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343331383137383b61646d696e5f69647c733a313a2232223b61646d696e5f656d61696c7c733a31393a22616264756c62617a6974407961686f6f2e6361223b61646d696e5f726f6c657c733a353a227375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31383a22416264756c6261736974204164656261796f223b),
-('47435ee85b6ba05eaaab4be3c9c4f9edd1434ed8', '::1', 1454318687, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343331383636313b61646d696e5f69647c733a313a2232223b61646d696e5f656d61696c7c733a31393a22616264756c62617a6974407961686f6f2e6361223b61646d696e5f726f6c657c733a353a227375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31383a22416264756c6261736974204164656261796f223b),
-('b093cc9f3b1833e6bdd59aa12db92277ceea9f33', '::1', 1454326915, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343332363231393b61646d696e5f69647c733a313a2231223b61646d696e5f656d61696c7c733a31393a22616d697273616e6e6940676d61696c2e636f6d223b61646d696e5f726f6c657c733a353a227375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31303a22416d69722053616e6e69223b),
-('74734b6912a29d3c9794355532a03f541595cf71', '::1', 1454328423, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343332383335323b61646d696e5f69647c733a313a2231223b61646d696e5f656d61696c7c733a31393a22616d697273616e6e6940676d61696c2e636f6d223b61646d696e5f726f6c657c733a353a227375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31303a22416d69722053616e6e69223b),
-('484c69fa40c9839bc9aeddc70e57d718c448b691', '::1', 1454330191, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343332393933353b61646d696e5f69647c733a313a2231223b61646d696e5f656d61696c7c733a31393a22616d697273616e6e6940676d61696c2e636f6d223b61646d696e5f726f6c657c733a353a227375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31303a22416d69722053616e6e69223b),
-('608fc4098a869684110359b64ba2031daf71694f', '::1', 1454330600, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343333303334343b61646d696e5f69647c733a313a2231223b61646d696e5f656d61696c7c733a31393a22616d697273616e6e6940676d61696c2e636f6d223b61646d696e5f726f6c657c733a353a227375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31303a22416d69722053616e6e69223b),
-('f610dde2114d8ea7c7966e343901e210b029a5e8', '::1', 1454330963, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343333303736313b61646d696e5f69647c733a313a2231223b61646d696e5f656d61696c7c733a31393a22616d697273616e6e6940676d61696c2e636f6d223b61646d696e5f726f6c657c733a353a227375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31303a22416d69722053616e6e69223b),
-('1983b792bdcf9e08a33dd0a7add97e4faf865a44', '::1', 1454331736, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343333313732323b61646d696e5f69647c733a313a2231223b61646d696e5f656d61696c7c733a31393a22616d697273616e6e6940676d61696c2e636f6d223b61646d696e5f726f6c657c733a353a227375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31303a22416d69722053616e6e69223b),
-('9d0976dad9af10eec8bf3e39b34705b4679b86f0', '::1', 1454332331, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343333323033393b61646d696e5f69647c733a313a2231223b61646d696e5f656d61696c7c733a31393a22616d697273616e6e6940676d61696c2e636f6d223b61646d696e5f726f6c657c733a353a227375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31303a22416d69722053616e6e69223b),
-('1aef9a2ccdaefafd7d382e990ca863b92a406569', '::1', 1454332582, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343333323432393b61646d696e5f69647c733a313a2231223b61646d696e5f656d61696c7c733a31393a22616d697273616e6e6940676d61696c2e636f6d223b61646d696e5f726f6c657c733a353a227375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31303a22416d69722053616e6e69223b),
-('80828219113c39862105a65c6d639455f5b79640', '::1', 1454333053, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343333323735373b61646d696e5f69647c733a313a2231223b61646d696e5f656d61696c7c733a31393a22616d697273616e6e6940676d61696c2e636f6d223b61646d696e5f726f6c657c733a353a227375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31303a22416d69722053616e6e69223b),
-('9e2e848013c201ad7527f907234be0be7f371fe7', '::1', 1454333331, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343333333133383b61646d696e5f69647c733a313a2231223b61646d696e5f656d61696c7c733a31393a22616d697273616e6e6940676d61696c2e636f6d223b61646d696e5f726f6c657c733a353a227375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31303a22416d69722053616e6e69223b),
-('f0b14892df4d1450d3abe7cbc1d1433bccc9a07b', '::1', 1454334962, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343333343936323b61646d696e5f69647c733a313a2231223b61646d696e5f656d61696c7c733a31393a22616d697273616e6e6940676d61696c2e636f6d223b61646d696e5f726f6c657c733a353a227375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31303a22416d69722053616e6e69223b),
-('bae7ceb58fcb0b6084e8868f01d9464cc9fb5c03', '::1', 1454335676, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343333353630373b61646d696e5f69647c733a313a2231223b61646d696e5f656d61696c7c733a31393a22616d697273616e6e6940676d61696c2e636f6d223b61646d696e5f726f6c657c733a353a227375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31303a22416d69722053616e6e69223b),
-('67f58c24ac5d8bc80d6111f367da46ce2a44ca58', '::1', 1454336766, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343333363231313b61646d696e5f69647c733a313a2232223b61646d696e5f656d61696c7c733a31393a22616264756c62617a6974407961686f6f2e6361223b61646d696e5f726f6c657c733a353a227375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31383a22416264756c6261736974204164656261796f223b),
-('ce2dd3887a390ec79730dd5c120d54c85a3353d5', '::1', 1454336864, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343333363835313b61646d696e5f69647c733a313a2232223b61646d696e5f656d61696c7c733a31393a22616264756c62617a6974407961686f6f2e6361223b61646d696e5f726f6c657c733a353a227375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31383a22416264756c6261736974204164656261796f223b),
-('f9de09f8ff84c017d67a72fcf77140bd20e43fc0', '::1', 1454337212, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343333373231323b61646d696e5f69647c733a313a2232223b61646d696e5f656d61696c7c733a31393a22616264756c62617a6974407961686f6f2e6361223b61646d696e5f726f6c657c733a353a227375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31383a22416264756c6261736974204164656261796f223b),
-('d5252fcef751ef18de129e5e9b0bd87a4243077b', '::1', 1454338583, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343333383135343b61646d696e5f69647c733a313a2232223b61646d696e5f656d61696c7c733a31393a22616264756c62617a6974407961686f6f2e6361223b61646d696e5f726f6c657c733a353a227375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31383a22416264756c6261736974204164656261796f223b),
-('5187ebdd023b89a20297fc989a3818a4e98a2212', '::1', 1454344003, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343334333939393b61646d696e5f69647c733a313a2232223b61646d696e5f656d61696c7c733a31393a22616264756c62617a6974407961686f6f2e6361223b61646d696e5f726f6c657c733a353a227375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31383a22416264756c6261736974204164656261796f223b),
-('84e2860a18ebcfa1d01a1589437fc69d0336e6d6', '::1', 1454348876, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343334383837323b61646d696e5f69647c733a313a2231223b61646d696e5f656d61696c7c733a31393a22616d697273616e6e6940676d61696c2e636f6d223b61646d696e5f726f6c657c733a353a225375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31303a22416d69722053616e6e69223b),
-('eca1d1fcad81f62a9b0dbaf1557a77d339df7c87', '::1', 1454356466, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343335363436363b),
-('d34c9f9bc963a50a31bcc6a6d2924d7c211d7e92', '::1', 1454637517, 0x5f5f63695f6c6173745f726567656e65726174657c693a313435343633373531313b61646d696e5f69647c733a313a2231223b61646d696e5f656d61696c7c733a31393a22616d697273616e6e6940676d61696c2e636f6d223b61646d696e5f726f6c657c733a353a225375706572223b61646d696e5f696e697469616c7c733a313a2241223b61646d696e5f6e616d657c733a31303a22416d69722053616e6e69223b);
+CREATE TABLE `blogs` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `title` varchar(200) NOT NULL,
+  `body` longtext NOT NULL,
+  `author` varchar(30) NOT NULL,
+  `default_image` varchar(100) DEFAULT NULL,
+  `uploaded_by` int(11) NOT NULL,
+  `date_created` datetime NOT NULL,
+  `last_edited` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `published` char(1) NOT NULL DEFAULT '0',
+  `edited_after_published` char(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categories`
+-- Table structure for table `bl_comments`
 --
 
-CREATE TABLE IF NOT EXISTS `categories` (
-  `cat_id` int(11) NOT NULL,
-  `cat_name` varchar(50) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `categories`
---
-
-INSERT INTO `categories` (`cat_id`, `cat_name`) VALUES
-(1, 'graphic_design'),
-(2, '3D_visulaization'),
-(3, 'Interior_design'),
-(4, 'fashion'),
-(5, 'photography_video_production'),
-(6, 'multimedia'),
-(7, 'product_designs'),
-(8, 'web_design_programming'),
-(9, 'software_training'),
-(10, 'fine_art'),
-(12, 'advertising_branding'),
-(13, 'catering'),
-(14, 'architecture_landscape'),
-(15, 'art_craft');
+CREATE TABLE `bl_comments` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `comment_body` text NOT NULL,
+  `username` varchar(20) DEFAULT NULL,
+  `blog_id` int(10) UNSIGNED NOT NULL,
+  `date_added` datetime NOT NULL,
+  `last_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `edited` char(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `images`
+-- Table structure for table `bl_replies`
 --
 
-CREATE TABLE IF NOT EXISTS `images` (
-  `image_id` int(11) NOT NULL,
-  `cat_id` int(11) NOT NULL,
-  `img_name` varchar(50) NOT NULL,
-  `path` varchar(90) NOT NULL,
-  `short_info` varchar(255) NOT NULL,
-  `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `image_size` varchar(35) NOT NULL DEFAULT 'cbp-item cbp-l-grid-masonry-height1',
-  `agent_id` int(7) NOT NULL,
-  `created_on` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+CREATE TABLE `bl_replies` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `reply_body` text NOT NULL,
+  `username` varchar(20) DEFAULT NULL,
+  `comment_id` int(10) UNSIGNED NOT NULL,
+  `date_added` datetime NOT NULL,
+  `last_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `edited` char(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
 
 --
--- Dumping data for table `images`
+-- Table structure for table `projects`
 --
 
-INSERT INTO `images` (`image_id`, `cat_id`, `img_name`, `path`, `short_info`, `modified`, `image_size`, `agent_id`, `created_on`) VALUES
-(1, 1, 'graphic design image 1', 'gallery_6.jpg', 'this is the first image for this category.', '2015-05-03 14:54:09', 'cbp-item cbp-l-grid-masonry-height1', 5, '2014-12-31 17:36:09'),
-(2, 1, 'Graphics image 2 ', 'gallery_1.jpg', 'this is the second image in this category', '2015-05-03 15:00:44', 'cbp-item cbp-l-grid-masonry-height1', 5, '2014-12-31 17:37:17'),
-(4, 1, 'gallery_1', 'gallery_1.jpg', 'this is the fourth image for this category.', '2015-05-03 15:00:49', 'cbp-item cbp-l-grid-masonry-height1', 5, '0000-00-00 00:00:00'),
-(5, 1, 'gallery 2', 'gallery_2.jpg', 'this is the second image in this category', '2015-05-03 14:56:21', 'cbp-item cbp-l-grid-masonry-height4', 5, '0000-00-00 00:00:00'),
-(6, 2, 'gallery_3', 'gallery_3.jpg', '', '2015-05-03 15:01:56', 'cbp-item cbp-l-grid-masonry-height2', 6, '0000-00-00 00:00:00'),
-(7, 2, 'gallery_4', 'gallery_4.jpg', '', '2015-05-03 14:57:10', 'cbp-item cbp-l-grid-masonry-height3', 6, '0000-00-00 00:00:00'),
-(8, 1, 'gallery 5', 'gallery_5.jpg', '', '2015-05-03 15:01:52', 'cbp-item cbp-l-grid-masonry-height2', 5, '0000-00-00 00:00:00'),
-(9, 1, 'gallery_6', 'gallery_6.jpg', '', '2015-05-03 14:59:09', 'cbp-item cbp-l-grid-masonry-height4', 5, '0000-00-00 00:00:00'),
-(10, 1, 'gallery 2', 'gallery_2.jpg', '', '2015-05-03 14:59:13', 'cbp-item cbp-l-grid-masonry-height4', 5, '0000-00-00 00:00:00'),
-(11, 2, 'gallery_3', 'gallery_3.jpg', '', '2015-05-03 14:59:17', 'cbp-item cbp-l-grid-masonry-height4', 6, '0000-00-00 00:00:00'),
-(12, 2, 'gallery_4', 'gallery_4.jpg', '', '2015-05-03 14:59:20', 'cbp-item cbp-l-grid-masonry-height4', 6, '0000-00-00 00:00:00'),
-(15, 1, 'gallery_2', 'gallery_2.jpg', '', '2015-05-03 14:59:25', 'cbp-item cbp-l-grid-masonry-height4', 5, '0000-00-00 00:00:00'),
-(16, 2, 'gallery_3', 'gallery_3.jpg', '', '2015-05-03 14:59:29', 'cbp-item cbp-l-grid-masonry-height4', 6, '0000-00-00 00:00:00'),
-(17, 2, 'gallery_4', 'gallery_4.jpg', '', '2015-05-03 14:59:32', 'cbp-item cbp-l-grid-masonry-height4', 6, '0000-00-00 00:00:00'),
-(18, 1, 'gallery5', 'gallery_5.jpg', '', '2015-05-03 14:59:36', 'cbp-item cbp-l-grid-masonry-height4', 5, '0000-00-00 00:00:00');
+CREATE TABLE `projects` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `title` varchar(50) NOT NULL,
+  `description` text,
+  `default_image` varchar(100) DEFAULT NULL,
+  `user_id` int(11) NOT NULL,
+  `category_id` tinyint(4) NOT NULL,
+  `tags` varchar(50) DEFAULT NULL,
+  `date_created` datetime NOT NULL,
+  `last_edited` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pr_categories`
+--
+
+CREATE TABLE `pr_categories` (
+  `id` tinyint(4) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `date_added` datetime NOT NULL,
+  `added_by` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pr_comments`
+--
+
+CREATE TABLE `pr_comments` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `comment_body` text NOT NULL,
+  `username` varchar(20) DEFAULT NULL,
+  `project_id` int(10) UNSIGNED NOT NULL,
+  `date_added` datetime NOT NULL,
+  `last_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `edited` char(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pr_images`
+--
+
+CREATE TABLE `pr_images` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `project_id` int(10) UNSIGNED NOT NULL,
+  `image_link` varchar(100) NOT NULL,
+  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pr_replies`
+--
+
+CREATE TABLE `pr_replies` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `reply_body` text NOT NULL,
+  `username` varchar(20) DEFAULT NULL,
+  `comment_id` int(10) UNSIGNED NOT NULL,
+  `date_added` datetime NOT NULL,
+  `last_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `edited` char(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pr_tags`
+--
+
+CREATE TABLE `pr_tags` (
+  `id` tinyint(4) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `date_added` datetime NOT NULL,
+  `added_by` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(25) NOT NULL,
+  `first_name` varchar(20) NOT NULL,
+  `last_name` varchar(20) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `profession` varchar(100) NOT NULL,
+  `mobile_1` varchar(15) NOT NULL,
+  `mobile_2` varchar(15) DEFAULT NULL,
+  `password` char(60) NOT NULL,
+  `logo` varchar(100) DEFAULT NULL,
+  `street` text,
+  `city` varchar(20) DEFAULT NULL,
+  `state` varchar(20) DEFAULT NULL,
+  `country` varchar(20) DEFAULT NULL,
+  `account_status` char(1) NOT NULL DEFAULT '1',
+  `signup_date` datetime NOT NULL,
+  `last_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `login_status` char(1) NOT NULL DEFAULT '0',
+  `last_login` datetime DEFAULT NULL,
+  `deleted` char(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
@@ -220,13 +232,9 @@ INSERT INTO `images` (`image_id`, `cat_id`, `img_name`, `path`, `short_info`, `m
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `email` (`email`), ADD UNIQUE KEY `mobile1` (`mobile1`), ADD KEY `account_status` (`account_status`), ADD KEY `deleted` (`deleted`), ADD FULLTEXT KEY `last_name` (`last_name`), ADD FULLTEXT KEY `first_name` (`first_name`), ADD FULLTEXT KEY `email_2` (`email`), ADD FULLTEXT KEY `first_name_2` (`first_name`,`last_name`), ADD FULLTEXT KEY `mobile1_2` (`mobile1`), ADD FULLTEXT KEY `mobile2` (`mobile2`);
-
---
--- Indexes for table `agents`
---
-ALTER TABLE `agents`
-  ADD PRIMARY KEY (`agent_id`), ADD UNIQUE KEY `email` (`email`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `mobile1` (`mobile1`);
 
 --
 -- Indexes for table `aura_admin_sessions`
@@ -235,16 +243,80 @@ ALTER TABLE `aura_admin_sessions`
   ADD KEY `ci_sessions_timestamp` (`timestamp`);
 
 --
--- Indexes for table `categories`
+-- Indexes for table `blogs`
 --
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`cat_id`);
+ALTER TABLE `blogs`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `title` (`title`),
+  ADD KEY `uploaded_by` (`uploaded_by`);
 
 --
--- Indexes for table `images`
+-- Indexes for table `bl_comments`
 --
-ALTER TABLE `images`
-  ADD PRIMARY KEY (`image_id`), ADD KEY `cat_id` (`cat_id`), ADD KEY `agent_id` (`agent_id`);
+ALTER TABLE `bl_comments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `blog_id` (`blog_id`);
+
+--
+-- Indexes for table `bl_replies`
+--
+ALTER TABLE `bl_replies`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `comment_id` (`comment_id`);
+
+--
+-- Indexes for table `projects`
+--
+ALTER TABLE `projects`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `category_id` (`category_id`);
+
+--
+-- Indexes for table `pr_categories`
+--
+ALTER TABLE `pr_categories`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`),
+  ADD KEY `added_by` (`added_by`);
+
+--
+-- Indexes for table `pr_comments`
+--
+ALTER TABLE `pr_comments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `project_id` (`project_id`);
+
+--
+-- Indexes for table `pr_images`
+--
+ALTER TABLE `pr_images`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `project_id` (`project_id`);
+
+--
+-- Indexes for table `pr_replies`
+--
+ALTER TABLE `pr_replies`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `comment_id` (`comment_id`);
+
+--
+-- Indexes for table `pr_tags`
+--
+ALTER TABLE `pr_tags`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`),
+  ADD KEY `added_by` (`added_by`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `mobile_1` (`mobile_1`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -254,32 +326,115 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `agents`
+-- AUTO_INCREMENT for table `blogs`
 --
-ALTER TABLE `agents`
-  MODIFY `agent_id` int(7) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+ALTER TABLE `blogs`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `categories`
+-- AUTO_INCREMENT for table `bl_comments`
 --
-ALTER TABLE `categories`
-  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
+ALTER TABLE `bl_comments`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `images`
+-- AUTO_INCREMENT for table `bl_replies`
 --
-ALTER TABLE `images`
-  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
+ALTER TABLE `bl_replies`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `projects`
+--
+ALTER TABLE `projects`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `pr_categories`
+--
+ALTER TABLE `pr_categories`
+  MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `pr_comments`
+--
+ALTER TABLE `pr_comments`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `pr_images`
+--
+ALTER TABLE `pr_images`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `pr_replies`
+--
+ALTER TABLE `pr_replies`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `pr_tags`
+--
+ALTER TABLE `pr_tags`
+  MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `images`
+-- Constraints for table `blogs`
 --
-ALTER TABLE `images`
-ADD CONSTRAINT `images_ibfk_1` FOREIGN KEY (`cat_id`) REFERENCES `categories` (`cat_id`),
-ADD CONSTRAINT `images_ibfk_2` FOREIGN KEY (`agent_id`) REFERENCES `agents` (`agent_id`);
+ALTER TABLE `blogs`
+  ADD CONSTRAINT `blogs_ibfk_1` FOREIGN KEY (`uploaded_by`) REFERENCES `admin` (`id`);
+
+--
+-- Constraints for table `bl_comments`
+--
+ALTER TABLE `bl_comments`
+  ADD CONSTRAINT `bl_comments_ibfk_1` FOREIGN KEY (`blog_id`) REFERENCES `blogs` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `bl_replies`
+--
+ALTER TABLE `bl_replies`
+  ADD CONSTRAINT `bl_replies_ibfk_1` FOREIGN KEY (`comment_id`) REFERENCES `bl_comments` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `projects`
+--
+ALTER TABLE `projects`
+  ADD CONSTRAINT `projects_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `projects_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `pr_categories` (`id`);
+
+--
+-- Constraints for table `pr_categories`
+--
+ALTER TABLE `pr_categories`
+  ADD CONSTRAINT `pr_categories_ibfk_1` FOREIGN KEY (`added_by`) REFERENCES `admin` (`id`) ON DELETE NO ACTION;
+
+--
+-- Constraints for table `pr_comments`
+--
+ALTER TABLE `pr_comments`
+  ADD CONSTRAINT `pr_comments_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `pr_images`
+--
+ALTER TABLE `pr_images`
+  ADD CONSTRAINT `pr_images_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `pr_replies`
+--
+ALTER TABLE `pr_replies`
+  ADD CONSTRAINT `pr_replies_ibfk_1` FOREIGN KEY (`comment_id`) REFERENCES `pr_comments` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `pr_tags`
+--
+ALTER TABLE `pr_tags`
+  ADD CONSTRAINT `pr_tags_ibfk_1` FOREIGN KEY (`added_by`) REFERENCES `admin` (`id`) ON DELETE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

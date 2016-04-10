@@ -308,3 +308,11 @@ function randomString(length){
     
     return rand;
 }
+
+
+
+function scrollToDiv(divElem){
+    $('html, body').animate({
+        scrollTop: $(divElem).offset().top
+    }, 1000);
+}

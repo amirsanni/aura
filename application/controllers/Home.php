@@ -19,7 +19,11 @@ class Home extends CI_Controller{
      * 
      */
     public function index(){
-        $this->load->view('home');
+        $json['curPage'] = "Home Page";
+        $json['pageTitle'] = "Design Aura: Connecting the dots:About";
+        $json['pageContent'] = $this->load->view('home', '', TRUE);
+        
+        $this->load->view('main', $json);
     }
     
     

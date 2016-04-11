@@ -51,23 +51,26 @@ defined('BASEPATH') OR exit('');
         </div>
         <!--End Preloader-->
 
-        <video id="bgVideo" poster="<?=base_url()?>public/images/background/bgVideo.png" preload="auto" autoplay="autoplay" loop="loop" muted >
-            <!-- Video is embedded in the WEBM format
-            <source src="..\img\bgVideo.webm" type="video/webm"> -->
-            <video src="<?=base_url()?>public/files/bgmovie.mp4"></video>
-        </video>
-
         <!-- Navbar -->
         <nav class="navbar navbar-default navbar-fixed-top header-nav" role="navigation">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>   
                     <!-- Logo -->        
                     <a class="navbar-brand" href="<?=base_url()?>">Design Aura</a>      
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
+						<li class="<?=$curPage == 'blog' ? 'active' : ''?>">
+                            <a href="<?=site_url('blog')?>">Blog</a>
+                        </li>
                         <li class="<?=$curPage == 'about' ? 'active' : ''?>">
                             <a href="<?=site_url('about')?>">About</a>
                         </li>                                                                            
@@ -80,9 +83,6 @@ defined('BASEPATH') OR exit('');
                         <li class="<?=$curPage == 'contact' ? 'active' : ''?>">
                             <a href="<?=site_url('contact')?>">Contact</a>
                         </li>  
-                        <li class="<?=$curPage == 'blog' ? 'active' : ''?>">
-                            <a href="<?=site_url('blog')?>">Blog</a>
-                        </li>
                         <?php if(isset($_SESSION['agentName'])): ?>
                         Welcome <?=$_SESSION['agentName']?>
                         <?php else: ?>
@@ -246,5 +246,6 @@ defined('BASEPATH') OR exit('');
         <script src="<?=base_url()?>/public/js/jquery.mmenu.min.js"></script>
         <script src="<?=base_url()?>/public/js/app.js"></script>
         <script src="<?=base_url()?>/public/js/homeScript.js"></script>
+		<script src="<?=base_url()?>/public/js/global.js"></script>
     </body>
 </html>

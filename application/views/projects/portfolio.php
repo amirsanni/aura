@@ -34,7 +34,7 @@ defined('BASEPATH') OR exit('');
                 <div class="span4">
                     <h3>Project Title</h3>
                     <p>Est vel diam massa ultrices netus fusce pulvinar nulla vitae aliquet metus praesent nec himenaeos at aptent himenaeos urna class vivamus sem sed senectus fringilla tempor nibh vestibulum libero aliquam imperdiet quam dignissim erat risus tortor tincidunt a taciti nostra imperdiet enim elementum nunc aliquam litora volutpat curae per non</p>
-                    <a href="#" class="btn btn-primary">Launch Project</a>
+                    
                     <div class="gap"></div>
                     <h4>What Clients Think</h4>
                     <ul class="list list-block-big">

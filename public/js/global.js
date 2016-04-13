@@ -1,12 +1,6 @@
 /* Global JavaScript File for working with JQuery library */
 
 // execute when the HTML file's (document object model: DOM) has loaded
-	
-	/* jQUERY UI CALENDAR PLUGIN */
-	// bind the Datepicker to the date-picker class
-	$(".date-picker").datepicker();
-
-});
 
 /* AUTOSUGGEST SEARCH */
 // triggered by input field onKeyUp

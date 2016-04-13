@@ -117,12 +117,6 @@
       }
    }
 
-    // right slidebar
-
-    $(function(){
-        $.slidebars();
-    });
-
     // body scroll
 
     $("html").niceScroll({
@@ -190,15 +184,6 @@
         }, 1000);
 
     });
-
-    // tool tips
-
-    $('.tooltips').tooltip();
-
-    // popovers
-
-    $('.popovers').popover();
-
-
+	
 
 })(jQuery);

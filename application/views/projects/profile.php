@@ -14,7 +14,58 @@ defined('BASEPATH') OR exit('');
     <script src="js/respond.min.js"></script>
     <![endif]-->
 
-<body>
+<body>   
+
+            <div class="col-sm-12 hidden" id="createProjectDiv" style="background-color:#FFFFF0">
+                        <div class="row">
+                            <i class="fa fa-times pull-right text-danger pointer closeCreateProject"></i>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <center><img src="" id='image' class="img-responsive" width="600px" height="400px"></center>
+                                <br>
+                                <label>Change Image(max file size; 500kb):</label>
+                                <input type="file" id="image" multiple="" name="image[]" class="form-control">
+                            </div>
+                        </div>
+                        
+                        <form id='createProjectForm' name='createProjectForm' role='form'>
+                            <div class="row">
+                                <div class="form-group col-sm-12">
+                                    <label for='title' class="control-label">Title</label>
+                                    <input type="text" id='title' class="form-control checkField" placeholder="Project Title">
+                                    <span class="help-block" id="titleErr"></span>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-sm-12">
+                                    <label for='desc' class="control-label">Description</label>
+                                    <textarea id='desc' class="form-control checkField" rows="10" cols="40" placeholder="Add Project Description"></textarea>
+                                    <span class="help-block errMsg" id="descErr"></span>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-sm-12">
+                                    <label for='cat' class="control-label">Category</label>
+                                    <textarea id='cat' class="form-control checkField" rows="10" cols="40" placeholder="Choose a category"></textarea>
+                                    <span class="help-block errMsg" id="catErr"></span>
+                                </div>
+                            </div>
+
+                            <input type="hidden" id="projectId">
+                            
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <button class="btn btn-primary" id="addProjectSubmit">Save</button>
+                                    <button class="btn btn-danger closeEditBlog">Close</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+        <div id="userProjects" style="margin-top: 80px;">
             <!-- profile head start-->
             <div class="profile-hero" style="margin-top: 80px;">
                 <div class="profile-intro">
@@ -34,6 +85,7 @@ defined('BASEPATH') OR exit('');
                     </div>
                 </div>
             </div>
+                
             <!-- profile head end-->
 
             <!--body wrapper start-->
@@ -51,7 +103,9 @@ defined('BASEPATH') OR exit('');
 
             </aside>
             <aside class="p-short-info">
-                
+                <div class="widget">
+                    <button id="createProject" class="btn btn-primary ">Create New Project</button>
+                </div>    
                 <div class="widget">
                     <div class="title">
                         <h1>About</h1>
@@ -110,6 +164,7 @@ defined('BASEPATH') OR exit('');
             </div>
 
             </div>
+        </div>    
             <!--body wrapper end-->
 
 <!-- Placed js at the end of the document so the pages load faster -->
@@ -120,6 +175,7 @@ defined('BASEPATH') OR exit('');
 <script src="<?=base_url()?>/public/js/jquery.nicescroll.js"></script>
 <!--common scripts for all pages-->
 <script src="<?=base_url()?>/public/js/scripts.js"></script>
+<script src="<?=base_url()?>/public/js/projects.js"></script>
 
 
 </body>

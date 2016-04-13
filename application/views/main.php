@@ -83,11 +83,11 @@ defined('BASEPATH') OR exit('');
                         <li class="<?=$curPage == 'contact' ? 'active' : ''?>">
                             <a href="<?=site_url('contact')?>">Contact</a>
                         </li>  
-                        <?php if(isset($_SESSION['agentName'])): ?>
-                        Welcome <?=$_SESSION['agentName']?>
+                        <?php if(isset($_SESSION['full_name'])): ?>
+                        <li><a>Welcome <?=$_SESSION['full_name']?></a></li>
                         <?php else: ?>
                         <li class="pointer">
-                            <a id='logInMenuClk'>Log in</a>
+                            <a><button id='logInMenuClk' class='btn btn-primary btn-sm'>Log in</button></a>
                         </li>
                         <?php endif; ?>
                     </ul>
@@ -134,7 +134,7 @@ defined('BASEPATH') OR exit('');
                     <div class="modal-header">
                         <button class="close" data-dismiss='modal'>&times;</button>
                         <h4 class="text-center">Sign Up</h4>
-                        <span id='signupFMsg'></span>
+                        <div class="text-center" id='signupFMsg'></div>
                     </div>
                     <div class="modal-body">
                         <form id='signupForm' name="signupForm">
@@ -150,6 +150,21 @@ defined('BASEPATH') OR exit('');
                                     <span class="help-block errMsg" id="lastNameErr"></span>
                                 </div>
                             </div>
+							
+							
+							<div class="row">
+                                <div class="col-sm-6 form-group-sm">
+                                    <label for='username' class="control-label">Username</label>
+                                    <input type="text" id='username' class="form-control checkField" placeholder="Username">
+                                    <span class="help-block errMsg" id="usernameErr"></span>
+                                </div>
+                                <div class="col-sm-6 form-group-sm">
+                                    <label for='mobile_1' class="control-label">Mobile Number</label>
+                                    <input type="tel" id='mobile_1' class="form-control checkField" placeholder="Mobile Number">
+                                    <span class="help-block errMsg" id="mobile_1Err"></span>
+                                </div>
+                            </div>
+							
                             
                             <div class="row">
                                 <div class="col-sm-6 form-group-sm">
@@ -195,7 +210,7 @@ defined('BASEPATH') OR exit('');
                     <div class="modal-header">
                         <button class="close" data-dismiss='modal'>&times;</button>
                         <h4 class="text-center">Log In</h4>
-                        <span id="logInFMsg" class="text-center errMsg"></span>
+                        <div id="logInFMsg" class="text-center errMsg"></div>
                     </div>
                     <div class="modal-body">
                         <form id='loginForm' name="loginForm">

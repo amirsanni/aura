@@ -2,12 +2,12 @@
 defined('BASEPATH') OR exit('');
 
 /**
- * Description of Agent
+ * Description of User
  *
  * @author Amir <amirsanni@gmail.com>
  * @date 29th Jan, 2016
  */
-class Agent extends CI_Model{
+class User extends CI_Model{
     public function __construct(){
         parent::__construct();
     }
@@ -20,12 +20,12 @@ class Agent extends CI_Model{
      * @param type $password
      * @return boolean
      */
-    public function add($_cp, $email, $password){
-        $data = ['contact_person'=>$_cp, 'email'=>$email, 'password'=>$password];
+    public function add($username, $first_name, $last_name, $email, $mobile_1, $password){
+        $data = ['username'=>$username, 'first_name'=>$first_name, 'last_name'=>$last_name, 'email'=>$email, 'mobile_1'=>$mobile_1, 'password'=>$password];
         
-        $this->db->set('created_on', 'NOW()', FALSE);
+        $this->db->set('signup_date', 'NOW()', FALSE);
         
-        $this->db->insert('agents', $data);
+        $this->db->insert('users', $data);
         
         if($this->db->affected_rows()){
             return $this->db->insert_id();

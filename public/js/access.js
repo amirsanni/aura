@@ -115,18 +115,22 @@ $(document).ready(function () {
     =============================================== */
 
     $("#signupSubmit").click(function(){
-        //get all values
+        //get all values)
         var firstName = $("#firstName").val();
         var lastName = $("#lastName").val();
+		var username = $("#username").val();
+		var mobile1 = $("#mobile_1").val();
         var emailOrig = $("#emailOrig").val();
         var emailDup = $("#emailDup").val();
         var pwordOrig = $("#pwordOrig").val();
         var pwordDup = $("#pwordDup").val();
 
         //ensure all fields are filled
-        if(!firstName || !lastName || !emailOrig || !emailDup || !pwordOrig || !pwordDup){
+        if(!firstName || !lastName || !username || !mobile1 || !emailOrig || !emailDup || !pwordOrig || !pwordDup){
             !firstName ? $("#firstNameErr").html("First name is required") : "";
             !lastName ? $("#lastNameErr").html("Last name is required") : "";
+			!username ? $("#usernameErr").html("Username is required") : "";
+			!mobile1 ? $("#mobile_1Err").html("Mobile Number is required") : "";
             !emailOrig ? $("#emailOrigErr").html("Please provide your e-mail address") : "";
             !emailDup ? $("#emailDupErr").html("Please retype your e-mail address") : "";
             !pwordOrig ? $("#pwordOrigErr").html("Enter your preferred password") : "";
@@ -143,25 +147,32 @@ $(document).ready(function () {
 
             return;
         }
+		
+		$("#signupFMsg").html("Processing...");
 
         //if all is well, make server req
         $.ajax({
             url: appRoot+"home/signup",
             method: "POST",
-            data: {firstName:firstName, lastName:lastName, emailOrig:emailOrig, emailDup:emailDup, pwordOrig:pwordOrig, pwordDup:pwordDup}
+            data: {firstName:firstName, lastName:lastName, username:username, mobile_1:mobile1, emailOrig:emailOrig, emailDup:emailDup, 
+					pwordOrig:pwordOrig, pwordDup:pwordDup}
         })
             .done(function(returnedData){
                 if(returnedData.status === 1){
                     //reset form, hide modal and redirect to profile page
-                    document.getElementById("signupForm").reset();
                     
-                    $("#signLogModal").modal('hide');
+                    //$("#signLogModal").modal('hide');
+					$("#signupFMsg").html("Registration Completed. Please wait...");
+					
+					setTimeout(function(){location.reload();}, 1500);
                 }
 
                 else{
                     //show all errors
                     $("#firstNameErr").html(returnedData.firstName);
                     $("#lastNameErr").html(returnedData.lastName);
+					$("#usernameErr").html(returnedData.username);
+					$("#mobile_1Err").html(returnedData.mobile_1);
                     $("#emailOrigErr").html(returnedData.emailOrig);
                     $("#emailDupErr").html(returnedData.emailDup);
                     $("#pwordOrigErr").html(returnedData.pwordOrig);

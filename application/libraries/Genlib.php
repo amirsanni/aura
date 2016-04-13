@@ -102,31 +102,6 @@ class Genlib {
         
         return "";
     }
-	
-	
-	
-    public function determineDevice(){
-        $this->CI->load->library('user_agent');
-        
-        //if it is not a mobile device, stay in domain
-        if(!$this->CI->agent->is_mobile()){
-            return "";
-        }
-        
-        else{
-            //get the current url
-            //modify the url to the mobile platform
-            //redirect user to the new url
-            //baseUrl() is in functions.php and it equals "http://m.smartagapp.com/"
-            
-            $url = str_replace(base_url(), baseUrl(), current_url());
-            
-            //if it has query string, add it to the url to redirect to
-            $newUrl = $_SERVER['QUERY_STRING'] ? $url . "?" . $_SERVER['QUERY_STRING'] : $url;
-            
-            redirect($newUrl);
-        }
-    }
     
     
     
@@ -151,18 +126,19 @@ class Genlib {
      * @return string
      */
     public function setSessionData($email){
-        //get details needed to put in session using the given email and set them
-        $this->CI->db->select('agent_id, email, contact_person, logo');
+        //get details needed to put in session using the given email
+        $this->CI->db->select('id, email, username, first_name, last_name, logo');
         $this->CI->db->where('email', $email);
         
-        $run_q = $this->CI->db->get('agents');
+        $run_q = $this->CI->db->get('users');
         
         if($run_q->num_rows() > 0){
             foreach($run_q->result() as $get){
-                $_SESSION['agentId'] = $get->agent_id;
-                $_SESSION['agentEmail'] = $get->email;
-                $_SESSION['agentName'] = $get->contact_person;
-                $_SESSION['companyLogo'] = "../agents/".$get->agent_id."/".$get->logo;
+                $_SESSION['user_id'] = $get->id;
+                $_SESSION['email'] = $get->email;
+                $_SESSION['username'] = $get->username;
+				$_SESSION['full_name'] = $get->first_name . " " . $get->last_name;
+                $_SESSION['companyLogo'] = "../agents/".$get->id."/".$get->logo;
             }
         }
         
@@ -342,14 +318,15 @@ class Genlib {
     
     /**
      * Set and return pagination configuration
-     * @param type $totalRows
-     * @param type $urlToCall
-     * @param type $limit
-     * @param type $attributes
+     * @param int $totalRows
+     * @param string $urlToCall
+     * @param int $limit
+     * @param array $attributes
+	 * @param int $uri_segment
      * @return boolean
      */
-    public function setPaginationConfig($totalRows, $urlToCall, $limit, $attributes){
-        $config = ['total_rows'=>$totalRows, 'base_url'=>base_url().$urlToCall, 'per_page'=>$limit, 'uri_segment'=>3,
+    public function setPaginationConfig($totalRows, $urlToCall, $limit, $attributes, $uri_segment){
+        $config = ['total_rows'=>$totalRows, 'base_url'=>base_url().$urlToCall, 'per_page'=>$limit, 'uri_segment'=>$uri_segment,
             'num_links'=>$totalRows/$limit, 'use_page_numbers'=>TRUE, 'first_link'=>FALSE, 'last_link'=>FALSE,
             'prev_link'=>'&lt;&lt;', 'next_link'=>'&gt;&gt;', 'full_tag_open'=>"<ul class='pagination'>", 'full_tag_close'=>'</ul>', 
             'num_tag_open'=>'<li>', 'num_tag_close'=>'</li>', 'next_tag_open'=>'<li>', 'next_tag_close'=>'</li>',

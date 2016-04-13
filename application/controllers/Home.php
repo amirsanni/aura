@@ -12,7 +12,7 @@ class Home extends CI_Controller{
     public function __construct(){
         parent::__construct();
         
-        $this->load->model('agent');
+        $this->load->model('user');
     }
     
     /**
@@ -38,26 +38,25 @@ class Home extends CI_Controller{
 
         $this->form_validation->set_error_delimiters('', '');
         
+		$this->form_validation->set_rules('username', 'Username', ['required', 'trim', 'max_length[20]'], 'is_unique[users.username]', ['required'=>"Username is required"]);
         $this->form_validation->set_rules('firstName', 'First name', ['required', 'trim', 'max_length[20]'], ['required'=>"first name is required"]);
         $this->form_validation->set_rules('lastName', 'Last name', ['required', 'trim', 'max_length[20]'], ['required'=>"last name is required"]);
-        $this->form_validation->set_rules('emailOrig', 'E-mail', ['required', 'trim', 'valid_email', 'is_unique[agents.email]'], ['required'=>"please provide your e-mail address", 'is_unique'=>"E-mail exists"]);
+        $this->form_validation->set_rules('emailOrig', 'E-mail', ['required', 'trim', 'valid_email', 'is_unique[users.email]'], ['required'=>"please provide your e-mail address", 'is_unique'=>"E-mail exists"]);
         $this->form_validation->set_rules('emailDup', 'E-mail Confirmation', ['required', 'trim', 'valid_email', 'matches[emailOrig]'], ['required'=>"please retype your e-mail address"]);
+		$this->form_validation->set_rules('mobile_1', 'Mobile', ['required', 'trim', 'max_length[20]'], 'is_unique[users.mobile_1]', ['required'=>"Mobile Number is required"]);
         $this->form_validation->set_rules('pwordOrig', 'Password', ['required'], ['required'=>"Enter your preferred password"]);
         $this->form_validation->set_rules('pwordDup', 'Password Confirmation', ['required', 'matches[pwordOrig]'], ['required'=>"Please retype your password"]);
         
         if($this->form_validation->run() !== FALSE){
             /**
              * insert info into db
-             * function header: add($_cp, $email, $password)
+             * function header: add($username, $first_name, $last_name, $email, $mobile_1, $password)
              */
-            
-            //concatenate first and last names and use as "contact_person". _cp = "Contact person"
-            $_cp = set_value('firstName') . " " . set_value('lastName');
             
             //encrypt the password
             $password = password_hash(set_value('pwordOrig'), PASSWORD_BCRYPT);
             
-            $inserted = $this->agent->add($_cp, set_value('emailOrig'), $password);
+            $inserted = $this->user->add(set_value('username'), set_value('firstName'), set_value('lastName'), set_value('emailOrig'), set_value('mobile_1'), $password);
             
             
             $json = $inserted ? ['status'=>1] : ['status'=>-1];
@@ -97,7 +96,7 @@ class Home extends CI_Controller{
             $givenEmail = set_value('emailLogIn');
             $givenPassword = set_value('logInPassword');
             
-            $pwordInDb = $this->genmod->getTableCol('agents', 'password', 'email', set_value('emailLogIn'));
+            $pwordInDb = $this->genmod->getTableCol('users', 'password', 'email', set_value('emailLogIn'));
             
             //if email exists, password will be returned, else "false" will be returned. So we proceed by verifying the returned password
             $verified = password_verify($givenPassword, $pwordInDb);

@@ -11,9 +11,8 @@ defined('BASEPATH') OR exit('');
 class Projects extends CI_Controller{
     public function __construct(){
         parent::__construct();
-                $this->load->model('Design_model');
-   //             $this->load->helper('url_helper');
-
+		
+		$this->load->model('Design_model');
     }
     
     

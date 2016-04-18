@@ -18,6 +18,11 @@ class Blog extends CI_Controller {
         $this->load->helper('text');
     }
 
+    
+    
+    /**
+     * 
+     */
     public function index() {
 
         $json['curPage'] = "blog";
@@ -30,13 +35,21 @@ class Blog extends CI_Controller {
         $this->load->view('main', $json);
     }
 
+    
+    
+    /**
+     * 
+     * @param unknown $id
+     * @param unknown $title
+     */
     public function view($id, $title) {
 
         $json['curPage'] = "blog";
         $json['pageTitle'] = "Design Aura: Connecting the dots:Blog";
 
         $data['news_item'] = $this->Blogmodel->get_news($id, $title);
-//var_dump($data); exit;
+
+        
         if (empty($data['news_item'])) {
             show_404();
         }

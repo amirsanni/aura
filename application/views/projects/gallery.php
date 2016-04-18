@@ -1,76 +1,92 @@
 <?php
 defined('BASEPATH') OR exit('');
 ?>
- 
-<html>
-	<link rel="stylesheet" type="text/css" href="<?=base_url()?>public/bootstrap/css/style_overlay1.css">
-    <body>
+<!DOCTYPE html>
 
-<!-- Header Background Parallax Image -->   
-        <div id="projects_bg">         
-            <div class="head-title"> 
-                <h2>Our Projects</h2>                        
-            </div>
-        </div>
-        <!-- End Header Background Parallax Image -->
-        
-<?php echo $this->Html->link('add', array('controller'=>'images', 'action'=>'add'));?>
-    <h2 style="text-align: left;padding-left: 20px;">Picture Gallery</h2>
-                <div id="effect-1" class="grid">
-            <?php foreach ($images as $image): ?>
-                        <!-- Portfolio Item (image and description) -->
-                        <div class="thumbnail">
-                            <a class="image-item" href=<?php echo "/designAura/gallery/" .$image['Image']['path'];?> >
-                                    <?php echo $this->Html->image("/gallery/" . $image['Image']['path'], array('alt' => "")); ?>
-                               </a>  
-                    </div>
-            <?php endforeach; ?>
+<!-- Header Background Parallax Image -->
+<div id="projects_bg">         
+    <div class="head-title"> 
+        <h2>Our Projects</h2>                        
+    </div>
 </div>
-        
-    <div>
-        <?php 
-        //show page numbers
-  //      echo $this->Paginator->numbers();  
-        echo $this->Paginator->next('Show more...');    ?> 
-     </div> 
+<!-- End Header Background Parallax Image -->        
+
+        <link rel="stylesheet" type="text/css" media="screen" href="<?=base_url()?>public/css/mainImage.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="<?=base_url()?>public/css/7531339.css" />
+      </head>
+
+  <body class="">
+            
+
+        <div id="menu-mobile"></div>
+        <div class="box-overlay"></div>
     
-        <script type="text/javascript">
-            window.onload = function(){
-                var options =
-                {
-                    srcNode: ('thumbnail', 'img'),             // grid items (class, node)
-                    margin: '20px',             // margin in pixel, default: 0px
-                    width: '250px',             // grid item width in pixel, default: 220px
-                    max_width: '',              // dynamic gird item width if specified, (pixel)
-                    resizable: true,            // re-layout if window resize
-                    transition: 'all 0.5s ease' // support transition for CSS3, default: all 0.5s ease
-                }
-                document.querySelector('.grid').gridify(options);
-            }
-        </script>   
-       
-          <script>
-            $(function(){
-              var $container = $('.image');
+       <section id="content">
+        <div class="block last">
+            <div class="inner full-width">
+                <div class="grid">
+                    <ul class="masonry" id="masonry-1">
+                    <?php foreach ($projects as $project): ?>
+                        <li class="col n-2-5">
+                            <div class="box-default box-post">
+                                <figure class="rollover">
+                                    <a href="http://www.awwwards.com/free-ebook-web-ui-design-for-the-human-eye-colors-space-contrast.html">
+                                        <img width="459" height="330" src="<?=base_url(); echo "public/", $project['default_image']?>" alt="<?php echo $project['title']?>" />
+                                                        </a>
+                                </figure>
+                                <div class="info">
+                                    <h3 class="x-bold"><a href="http://www.awwwards.com/free-ebook-web-ui-design-for-the-human-eye-colors-space-contrast.html"><?php echo $project['title']?></a></h3>
+                                    <div class="row author">
+                                        <strong><a href="http://www.awwwards.com/category/web-design-tag/">By: <?php echo $project['username']?></a></strong>
+                                    </div>
+                                    <div class="row category">
+                                        <strong><a href="http://www.awwwards.com/category/web-design-tag/"><?php echo $project['name']?></a></strong>
+                                    </div>
+                                    <div class="row date"><?php echo date('F d Y', strtotime($project['date_created']));?></div>
+                                </div>
+                            </div>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            </div>
 
-              $container.infinitescroll({
-                navSelector  : '.next',    // selector for the paged navigation 
-                nextSelector : '.next a',  // selector for the NEXT link (to page 2)
-                itemSelector : '.gallery-image',     // selector for all items you'll retrieve
-                debug         : true,
-                dataType      : 'html',
-                loading: {
-                    finishedMsg: 'No more posts to load. All Hail Star Wars God!',
-                    img: '<?php echo $this->webroot; ?>img/AjaxLoader.gif'
-                  }
-                }
-              );
-            });
- 
-        </script>
-    </body>
-	<script src="<?=base_url()?>/public/bootstrap/js/jquery.infinitescroll.js"></script>
-    <script src="<?=base_url()?>/public/bootstrap/js/jquery.manual-trigger.js"></script>
-	<script src="<?=base_url()?>/public/bootstrap/js/jquery.gridify.js"></script>
-</html>
+        </div>
+    </section>
+   
 
+            <script src="<?=base_url()?>public/js/7c16508.js"></script>
+
+    <script src="<?=base_url()?>public/js/jquery.masonry.js"></script>
+    <script src="<?=base_url()?>public/js/jquery.images-loaded.js"></script>
+    <script src="<?=base_url()?>public/js/jquery.infinite-scroll.js"></script>
+    <script>
+        function showListMosaic(){
+            /* MOSAIC 1 */
+            var container1 = $('#masonry-1');
+            setTimeout(function(){ 
+                container1.imagesLoaded( function(){
+                    container1.masonry({
+                        itemSelector : 'li'
+                    });
+                });
+            }, 600);
+            /* INFINITE LOAD 1 */
+            container1.infinitescroll({
+                    navSelector  : '.paginate',
+                    nextSelector : '.paginate .next',
+                    itemSelector : '#masonry-1 li'
+                },
+                function( newElements1 ) {
+                    var $newElems1 = $( newElements1 ).css({ opacity: 0 });
+                    $newElems1.imagesLoaded(function(){
+                        $newElems1.animate({ opacity: 1 });
+                        container1.masonry( 'appended', $newElems1, true );
+                    });
+                }
+            );
+        }
+        $(document).ready(showListMosaic);
+        $(window).resize(showListMosaic);
+    </script>
+  </body>

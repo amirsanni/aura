@@ -21,7 +21,7 @@ defined('BASEPATH') OR exit('');
                     <?php foreach ($news as $news_item): ?>
                     <!-- Blog Item -->
                     <li class="cbp-item ideas motion">
-                        <a href="blog-posts/post1.html" class="cbp-caption cbp-singlePage">
+                        <a href="<?=base_url();?>Blog/view/<?php echo $news_item['id'], '/', $news_item['title'];?>" class="cbp-caption">
                             <!-- Blog Image -->
                             <div class="cbp-caption-defaultWrap">
                                 <?php $image = empty($news_item['default_image']) ? "download/default.jpg" : $news_item['default_image']?>
@@ -38,12 +38,12 @@ defined('BASEPATH') OR exit('');
                         </a>
                         <!-- Blog Information -->
                         <div class="text-center">
-                            <a href="blog-posts/post1.html" class="cbp-l-grid-blog-title cbp-singlePage"><?php echo $news_item['title'];?></a>
+                            <a href="<?=base_url();?>Blog/view/<?php echo $news_item['id'], '/', $news_item['title'];?>" class="cbp-l-grid-blog-title"><?php echo $news_item['title'];?></a>
                             <div class="cbp-l-grid-blog-date"><?php echo date('F d Y', strtotime($news_item['date_created']));?></div>
                             <div class="cbp-l-grid-blog-split">|</div>
                             <a href="#" class="cbp-l-grid-blog-comments">12 comments</a>
                         </div>
-                        <div class="cbp-l-grid-blog-desc"><?=LimitCharacter($news_item['body'],200);?></div>                            
+                        <div class="cbp-l-grid-blog-desc"><?=word_limiter($news_item['body'],20);?></div>                            
                   <?php endforeach; ?>        
                 </ul>                                                
             </div>                                                   
@@ -54,15 +54,3 @@ defined('BASEPATH') OR exit('');
 </div><!-- /site-wrapper -->
 <!-- End Site Wrapper -->
 <?php
-function LimitCharacter($data,$limit = 20)
-{
-    if (strlen($data) > $limit)
-    {
-        $data = substr($data, 0, strrpos(substr($data, 0, $limit), ' ')) . '...';
-        return $data;
-    }
-    else
-    {
-        return $data;
-    }
-}

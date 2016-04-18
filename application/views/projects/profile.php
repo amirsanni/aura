@@ -7,12 +7,19 @@ defined('BASEPATH') OR exit('');
     <!--common style-->
 	<link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/profile-style.css">
     <link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/style-responsive.css">
-
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->
+    <style type='text/css'>
+        .tp-caption.medium_grey{position:absolute;color:#fff;text-shadow:0px 2px 5px rgba(0,0,0,0.5);font-weight:700;font-size:20px;
+            line-height:20px;font-family:Arial;padding:2px 4px;margin:0px;border-width:0px;border-style:none;background-color:#888;
+            white-space:nowrap}.tp-caption a{color:#fff;text-shadow:none;-webkit-transition:all 0.2s ease-out;-moz-transition:all 0.2s ease-out;
+            -o-transition:all 0.2s ease-out;-ms-transition:all 0.2s ease-out}.clx-btn-slider{padding:15px 21px;  border:2px solid #d0cdce;  
+            text-transform:uppercase; color:#fff !important; font-size:16px; font-weight:700}.clx-btn-slider:hover{background:rgba(0,0,0,0.6)}
+            .entry-meta span{color: #6f6f6f; margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; font-family: 'Lato';}
+    </style>
 
 <body>   
 
@@ -94,17 +101,53 @@ defined('BASEPATH') OR exit('');
             <div class="profile-desk">
             <aside class="p-aside">
                 <section class="panel profile-info">
-                    
-                </section>
 
-                <div class="profile-timeline">
-                    
-                </div>
+                    <div class="row" style="box-sizing: border-box; margin: 0; padding: 0; border: 0; display: block; outline: none;">
+                        <?php foreach ($projects as $project): ?>
+                        <article id="post-267" style="min-height: 178px; padding: 30px; position: relative; margin-bottom: 20px; display: block; background: #EFE9E9;" >
+                            <!---- ========== POST CONTENT ========== ---->
+                            <div class="content-article  clearfix">
+
+                                <h1 style="margin-bottom: 20px; font-size: 18px; color: #eeeeee; line-height: 25px">
+                                    <a href="awesome-video-post-type/index.html">
+                                    <?php echo $project['title']?></a>
+                                </h1>
+
+                                <div class="entry-meta" style="margin-bottom: 15px; margin: 0; padding: 0; border: 0;">
+
+                                    
+                                    <span style="margin-right: 20px; ">
+                                        <i class="fa fa-user"></i>
+                                        master                 in                 
+                                        <a href="category/new-music/index.html" rel="category tag"><?php echo $project['name']?></a>  </span>
+
+                                    <span style="margin-right: 20px; ">
+                                        <i class="fa fa-comment"></i>
+                                        <a href="#" rel="23 comments">
+                                            <a href="awesome-video-post-type/index.html#respond" title="Comment on Awesome Video Post Type"> 0 comments</a>                </a>
+                                    </span>
+                                
+                                    <span style="margin-right: 20px; "><i class="fa fa-clock-o"></i><a class="date"><?php echo date('F d Y', strtotime($project['date_created']));?></a></span>
+                                    
+                                </div>
+                                <hr>
+                                <div class="entry-content" style="margin-bottom: 15px;">
+                                    <p><?php echo $project['description']?></p>
+                                </div>
+
+                                <a class="read-more" style="color: #fff; display: block; padding: 8px 20px; background: rgba(142, 68, 173, 0.99); float: left; text-transform: capitalize;" href="awesome-video-post-type/index.html" >View <i class="fa fa-angle-double-right"></i></a>
+                            </div>
+                            <!---- ========== END POST CONTENT ========== ---->
+
+                        </article>
+                        <?php endforeach; ?>
+                    </div>    
+                </section>
 
             </aside>
             <aside class="p-short-info">
                 <div class="widget">
-                    <button id="createProject" class="btn btn-primary ">Create New Project</button>
+                    <button id="createProject" class="btn btn-primary " >Create New Project</button>
                 </div>    
                 <div class="widget">
                     <div class="title">
@@ -171,8 +214,8 @@ defined('BASEPATH') OR exit('');
 <script src="<?=base_url()?>/public/js/jquery-migrate.js"></script>
 <script src="<?=base_url()?>/public/js/modernizr.min.js"></script>
 
-<!--Nice Scroll-->
-<script src="<?=base_url()?>/public/js/jquery.nicescroll.js"></script>
+<!--Nice Scroll
+<script src="<?=base_url()?>/public/js/jquery.nicescroll.js"></script>-->
 <!--common scripts for all pages-->
 <script src="<?=base_url()?>/public/js/scripts.js"></script>
 <script src="<?=base_url()?>/public/js/projects.js"></script>

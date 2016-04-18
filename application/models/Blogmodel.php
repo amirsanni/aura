@@ -16,7 +16,7 @@ class Blogmodel extends CI_Model{
                 return $query->result_array();
         }
 
-        $query = $this->db->get_where('blogs', array('id' => $id, 'title' => $title));
+        $query = $this->db->get_where('blogs', array('id' => $id, 'title' => urldecode($title))); 
         return $query->row_array();
     }
 

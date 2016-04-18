@@ -32,6 +32,17 @@ class Projects extends CI_Controller{
         $this->load->view('main', $json);
     }
 
+    public function gallery(){
+
+        $data['projects'] = $this->Design_model->getprojectmod();
+//var_dump($data); exit;
+        $json['curPage'] = "projects";
+        $json['pageTitle'] = "Design Aura: Connecting the dots:Projects";
+        $json['pageContent'] = $this->load->view('projects/gallery', $data, TRUE);
+        
+        $this->load->view('main', $json);
+    }
+
     public function portfolio(){
         $json['curPage'] = "projects";
         $json['pageTitle'] = "Design Aura: Connecting the dots:Projects";
@@ -86,7 +97,8 @@ class Projects extends CI_Controller{
             }
 
         $profile_data['suc_msg'] = $this->session->flashdata('suc_msg');
-
+        $profile_data['projects'] = $this->Design_model->getprojectmod();
+//        var_dump($profile_data); exit;
         $json['curPage'] = "projects";
         $json['pageTitle'] = "Design Aura: Connecting the dots:Projects";
         $json['pageContent'] = $this->load->view('projects/profile', $profile_data, TRUE);

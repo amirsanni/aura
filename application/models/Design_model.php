@@ -8,13 +8,40 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class Design_model extends CI_Model{
    
-    public function getprojectmod($id){
+    public function getprojectmod($id = FALSE)
+     {
+        if ($id === FALSE)
+        {
+                $this->db->select('projects.id, title, default_image, pr_categories.name, description, users.username, date_created, last_edited, published');
+                $this->db->join('users', 'users.id=projects.user_id');
+                $this->db->join('pr_categories', 'pr_categories.id=projects.category_id');
+                
+                $run_q = $this->db->get('projects');
+                
+                if($run_q->num_rows() > 0){
+                    return $run_q->result_array();
+                }
+                
+                else{
+                    return FALSE;
+                }
+        }
 
-        $this->load->database();
-        $query = $this->db->query("SELECT * FROM projects WHERE project_id = $id");
-        return $query->result();
+        $this->db->select('projects.id, title, default_image, pr_categories.name,  description, users.username, date_created, last_edited, published');
+        $this->db->join('users', 'users.id=projects.user_id');
+        $this->db->join('pr_categories', 'pr_categories.id=projects.category_id');
+        
+        $run_q = $this->db->get_where('projects', array('id' => $id));
+        
+        if($run_q->num_rows() > 0){
+            return $run_q->result_array();
+        }
+        
+        else{
+            return FALSE;
+        }
     }
-
+        
     public function user_data($agent_id){
         $data = array();
         $agent_id = (int)$agent_id;

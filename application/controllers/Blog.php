@@ -15,6 +15,7 @@ class Blog extends CI_Controller {
         parent::__construct();
         $this->load->model('Blogmodel');
         $this->load->helper('url_helper');
+        $this->load->helper('text');
     }
 
     public function index() {
@@ -35,14 +36,14 @@ class Blog extends CI_Controller {
         $json['pageTitle'] = "Design Aura: Connecting the dots:Blog";
 
         $data['news_item'] = $this->Blogmodel->get_news($id, $title);
-
+//var_dump($data); exit;
         if (empty($data['news_item'])) {
             show_404();
         }
 
         $data['title'] = $data['news_item']['title'];
 
-        $json['pageContent'] = $this->load->view('blog', $data, TRUE);
+        $json['pageContent'] = $this->load->view('blog_post', $data, TRUE);
 
         $this->load->view('main', $json);
     }

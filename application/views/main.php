@@ -16,6 +16,7 @@ defined('BASEPATH') OR exit('');
         <!-- Web Fonts -->        
         <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Raleway:600,500,300,400">
         <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700">
+        <link href='http://fonts.googleapis.com/css?family=Exo:400,300,300italic,500,400italic,500italic,600,600italic,700,700italic%7CMerriweather:400,300,300italic,400italic,700,700italic%7COpen+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800%7CMontserrat:400,700%7CLibre+Baskerville:400,700' rel='stylesheet' type='text/css'>
         
         <!--favicon--->
         <link href="favicon.ico" type="image/x-icon" rel="icon">

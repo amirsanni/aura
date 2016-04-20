@@ -23,7 +23,7 @@ class Home extends CI_Controller{
         $json['pageTitle'] = "Design Aura: Connecting the dots:About";
         $json['pageContent'] = $this->load->view('home', '', TRUE);
         
-        $this->load->view('main', $json);
+        $this->load->view('homemain', $json);
     }
     
     

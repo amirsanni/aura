@@ -53,11 +53,11 @@ defined('BASEPATH') OR exit('');
         <!--End Preloader-->
 
         <!-- Navbar -->
-        <nav class="navbar navbar-default navbar-fixed-top header-nav" role="navigation">
+        <nav class="navbar navbar-default header-nav" role="navigation">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -69,19 +69,19 @@ defined('BASEPATH') OR exit('');
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-						<li class="<?=$curPage == 'blog' ? 'active' : ''?>">
+                        <li class="<?=$curPage == 'Blog' ? 'active' : ''?>">
                             <a href="<?=site_url('blog')?>">Blog</a>
                         </li>
-                        <li class="<?=$curPage == 'about' ? 'active' : ''?>">
+                        <li class="<?=$curPage == 'About' ? 'active' : ''?>">
                             <a href="<?=site_url('about')?>">About</a>
                         </li>                                                                            
-                        <li class="<?=$curPage == 'projects' ? 'active' : ''?>">
+                        <li class="<?=$curPage == 'Projects' ? 'active' : ''?>">
                             <a href="<?=site_url('projects')?>">Search and Explore</a>
                         </li>                    
-                        <li class="<?=$curPage == 'testimonials' ? 'active' : ''?>">
+                        <li class="<?=$curPage == 'Testimonials' ? 'active' : ''?>">
                             <a href="<?=site_url('testimonials')?>">Testimonials</a>
                         </li>                        
-                        <li class="<?=$curPage == 'contact' ? 'active' : ''?>">
+                        <li class="<?=$curPage == 'Contact' ? 'active' : ''?>">
                             <a href="<?=site_url('contact')?>">Contact</a>
                         </li>  
                         <?php if(isset($_SESSION['full_name'])): ?>
@@ -153,7 +153,7 @@ defined('BASEPATH') OR exit('');
                             </div>
 							
 							
-							<div class="row">
+                            <div class="row">
                                 <div class="col-sm-6 form-group-sm">
                                     <label for='username' class="control-label">Username</label>
                                     <input type="text" id='username' class="form-control checkField" placeholder="Username">
@@ -250,18 +250,17 @@ defined('BASEPATH') OR exit('');
         </div>
         <!---end of signup/login Modal-->
         
-        <script src="<?=base_url()?>/public/bootstrap/js/bootstrap.min.js"></script>
-        <script src="<?=base_url()?>/public/js/main.js"></script>
-        <script src="<?=base_url()?>/public/js/access.js"></script>
-        <script src="<?=base_url()?>/public/js/jquery.themepunch.tools.min.js"></script>
-        <script src="<?=base_url()?>/public/js/jquery.themepunch.revolution.min.js"></script>
-        <script src="<?=base_url()?>/public/js/jquery.cubeportfolio.min.js"></script>
-        <script src="<?=base_url()?>/public/js/owl.carousel.js"></script>
-        <script src="<?=base_url()?>/public/js/moderniz.js"></script>
-        <script src="<?=base_url()?>/public/js/jquery.sticky.js"></script>
-        <script src="<?=base_url()?>/public/js/jquery.mmenu.min.js"></script>
-        <script src="<?=base_url()?>/public/js/app.js"></script>
-        <script src="<?=base_url()?>/public/js/homeScript.js"></script>
-		<script src="<?=base_url()?>/public/js/global.js"></script>
+        <script src="<?=base_url('public/bootstrap/js/bootstrap.min.js')?>"></script>
+        <script src="<?=base_url('public/js/main.js')?>"></script>
+        <script src="<?=base_url('public/js/access.js')?>"></script>
+        <script src="<?=base_url('public/js/jquery.themepunch.tools.min.js')?>"></script>
+        <script src="<?=base_url('public/js/jquery.themepunch.revolution.min.js')?>"></script>
+        <script src="<?=base_url('public/js/jquery.cubeportfolio.min.js')?>"></script>
+        <script src="<?=base_url('public/js/owl.carousel.js')?>"></script>
+        <script src="<?=base_url('public/js/moderniz.js')?>"></script>
+        <script src="<?=base_url('public/js/jquery.sticky.js')?>"></script>
+        <script src="<?=base_url('public/js/jquery.mmenu.min.js')?>"></script>
+        <script src="<?=base_url('public/js/app.js')?>"></script>
+        <script src="<?=base_url('public/js/blogs.js')?>"></script>
     </body>
 </html>

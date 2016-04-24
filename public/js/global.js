@@ -1,7 +1,6 @@
 /* Global JavaScript File for working with JQuery library */
 
 // execute when the HTML file's (document object model: DOM) has loaded
-<<<<<<< HEAD
 	
 	/* jQUERY UI CALENDAR PLUGIN */
 	// bind the Datepicker to the date-picker class
@@ -9,8 +8,6 @@ $(document).ready(function(){
 	$(".date-picker").datepicker();
 });
 	
-=======
->>>>>>> origin/master
 
 /* AUTOSUGGEST SEARCH */
 // triggered by input field onKeyUp

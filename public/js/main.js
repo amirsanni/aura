@@ -1,6 +1,7 @@
 'use strict';
 
-var appRoot = "http://localhost/aura/";
+var appRoot = setAppRoot("aura", "");
+var spinnerClass = 'fa fa-spinner faa-spin animated';
 
 $(document).ready(function(){
     
@@ -315,4 +316,30 @@ function scrollToDiv(divElem){
     $('html, body').animate({
         scrollTop: $(divElem).offset().top
     }, 1000);
+}
+
+
+
+/**
+ * 
+ * @param {type} devFolderName
+ * @param {type} prodFolderName
+ * @returns {String}
+ */
+function setAppRoot(devFolderName, prodFolderName){
+    var hostname = window.location.hostname;
+
+    /*
+     * set the appRoot
+     * This will work for both http, https with or without www
+     * @type String
+     */
+    
+    //attach trailing slash to both foldernames
+    var devFolder = devFolderName+"/";
+    var prodFolder = prodFolderName+"/";
+    
+    var baseURL = hostname === "localhost" ? window.location.origin+"/"+devFolder : window.location.origin+"/"+prodFolder;
+    
+    return baseURL;
 }

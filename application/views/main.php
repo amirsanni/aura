@@ -25,6 +25,7 @@ defined('BASEPATH') OR exit('');
         <!---CSS-->
         <link rel="stylesheet" type="text/css" href="<?=base_url()?>public/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="<?=base_url()?>public/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="<?=base_url()?>public/font-awesome/css/font-awesome-animation.min.css">
         <link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/revolution/css/style.css">
         <link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/extralayers.css">
         <link rel="stylesheet" type="text/css" href="<?=base_url()?>public/css/revolution/rs-plugin/css/settings.css">
@@ -75,21 +76,21 @@ defined('BASEPATH') OR exit('');
                         <li class="<?=$curPage == 'About' ? 'active' : ''?>">
                             <a href="<?=site_url('about')?>">About</a>
                         </li>                                                                            
-                        <li class="<?=$curPage == 'Projects' ? 'active' : ''?>">
+                        <!---<li class="<?=$curPage == 'Projects' ? 'active' : ''?>">
                             <a href="<?=site_url('projects')?>">Search and Explore</a>
                         </li>                    
                         <li class="<?=$curPage == 'Testimonials' ? 'active' : ''?>">
                             <a href="<?=site_url('testimonials')?>">Testimonials</a>
-                        </li>                        
+                        </li>-->                        
                         <li class="<?=$curPage == 'Contact' ? 'active' : ''?>">
                             <a href="<?=site_url('contact')?>">Contact</a>
                         </li>  
                         <?php if(isset($_SESSION['full_name'])): ?>
-                        <li><a>Welcome <?=$_SESSION['full_name']?></a></li>
+                        <!--<li><a>Welcome <?=$_SESSION['full_name']?></a></li>--->
                         <?php else: ?>
-                        <li class="pointer">
+                        <!--<li class="pointer">
                             <a><button id='logInMenuClk' class='btn btn-primary btn-sm'>Log in</button></a>
-                        </li>
+                        </li>--->
                         <?php endif; ?>
                     </ul>
                 </div><!-- /.navbar-collapse -->

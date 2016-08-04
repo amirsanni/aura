@@ -73,37 +73,62 @@
 
         })();
 
+		
         /* ==============================================
          CONTACT FORM
          =============================================== */
 
         $('#contactform').submit(function () {
 
-            var action = $(this).attr('action');
-
+			var name = $('#name').val();
+			var email = $('#email').val();
+			var msg = $('#msg').val();
+			var phone = $('#phone').val();
+			
             $("#message").slideUp(750, function () {
                 $('#message').hide();
 
-                $('#submit')
-                        .after('<img src="assets/img/ajax-loader.gif" class="loader" />')
-                        .attr('disabled', 'disabled');
+				//show loading
+                $('#loading').css({color:'black'}).html('&nbsp;<i class="'+spinnerClass+'"></i> Sending Message...');
+                $('#submit').attr('disabled', 'disabled');//disable click on the submit button
 
-                $.post(action, {
-                    name: $('#name').val(),
-                    email: $('#email').val(),
-                    phone: $('#phone').val(),
-                    comments: $('#comments').val(),
+				if(!name || !email || !msg){
+					$("#loading").css({color:'red'}).html("Name, Email and Message fields are required");
+					
+					//enable click on the button
+					$('#submit').removeAttr('disabled');
+					
+					return "";
+				}
+				
+				//send to server
+                $.post(appRoot+"contact/emailus", {
+                    name: name,
+                    email: email,
+                    phone: phone,
+                    msg: msg,
                 },
-                        function (data) {
-                            document.getElementById('message').innerHTML = data;
-                            $('#message').slideDown('slow');
-                            $('#contactform img.loader').fadeOut('slow', function () {
-                                $(this).remove()
-                            });
-                            $('#submit').removeAttr('disabled');
-                            if (data.match('success') != null)
-                                $('#contactform').slideUp('slow');
-                        }
+					function (data) {
+						$('#message').slideDown('slow');
+						$('#submit').removeAttr('disabled');
+						
+						if(data.status === 1){
+							$("#message").css({color:'green'}).html("Thanks for your message");
+							
+							$('#loading').fadeOut('slow', function () {
+								$(this).remove()
+							});
+							
+							//reset the form
+							document.getElementById('contactform').reset();
+						}
+						
+						else{
+							$("#message").css({color:'red'}).html("Unable to send your message at this time. Please try again later");
+							$("#loading").css({color:'red'}).html("");//remove the loading message/icon
+						}
+							
+					}
                 );
 
             });

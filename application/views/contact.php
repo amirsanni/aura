@@ -13,8 +13,8 @@ defined('BASEPATH') OR exit('');
 <div class="bg-color padding-top-x2">
     <div class="container padding-bottom">
         <div class="col-lg-12" id="contact">                
-            <div id="message"></div>
-            <form method="post" action="http://Design Aura.denisgriu.com/contact.php" name="contactform" id="contactform">
+            
+            <form method="post" name="contactform" id="contactform">
                 <fieldset>
                     <div class="col-md-6">
 
@@ -74,7 +74,7 @@ defined('BASEPATH') OR exit('');
                                     <span><b>Email</b></span>
                                     <address>                            
                                         <small>
-                                            designaurainc@gmail.com                   
+                                            hello@designaura.com.ng                   
                                         </small>
                                     </address>
                                 </div>
@@ -96,21 +96,22 @@ defined('BASEPATH') OR exit('');
                     </div>
 
                     <div class="col-md-6"> 
+						<div id="message" class="text-center"></div>
                         <!-- Name -->
-                        <input name="name" type="text" id="name" size="30" value="" placeholder="Name"/>
+                        <input name="name" type="text" id="name" size="30" value="" placeholder="Name (required)" />
                         <br />
                         <!-- Email -->
-                        <input name="email" type="text" id="email" size="30" value="" placeholder="Email"/>
+                        <input name="email" type="email" id="email" size="30" value="" placeholder="Email (required)" />
                         <br /> 
                         <!-- Phone -->
                         <input name="phone" type="text" id="phone" size="30" value="" placeholder="Phone"/>
 
                         <!-- Message -->                                                                        
-                        <textarea name="comments" cols="40" rows="5" id="comments" placeholder="Message"></textarea>
+                        <textarea name="msg" cols="40" rows="5" id="msg" placeholder="Message (required)" ></textarea>
 
                         <!-- Submit Button -->                                        
                         <button type="submit" class="btn btn-default btn-submit submit" id="submit" value="Submit">Submit</button>
-
+						<span id="loading"></span>
                     </div>
 
                 </fieldset>
@@ -120,6 +121,6 @@ defined('BASEPATH') OR exit('');
 </div>          
 <!-- End Contact Form -->
 
-<!-- Google Map (adress on map can be changed in app.js file) -->
+<!-- Google Map (adress on map can be changed in app.js file)
 <div id="map-canvas"></div>
 <!-- End Google Map -->

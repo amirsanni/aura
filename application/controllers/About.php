@@ -16,7 +16,7 @@ class About extends CI_Controller{
     
     
     public function index(){
-        $json['curPage'] = "about";
+        $json['curPage'] = "About";
         $json['pageTitle'] = "Design Aura: Connecting the dots:About";
         $json['pageContent'] = $this->load->view('about', '', TRUE);
         

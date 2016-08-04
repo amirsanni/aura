@@ -23,7 +23,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/aura/';
+$host = $_SERVER['HTTP_HOST'];//e.g practa.ng || www.practa.ng || localhost
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS']) ? "https://" : "http://";
+        
+if($host == "localhost"){
+    $config['base_url'] = 'http://localhost/aura/';
+}
+
+else{
+    $allowed = ['designaura.com.ng', 'www.designaura.com.ng', 'designaura.net', 'www.designaura.net'];
+
+    $config['base_url'] = in_array($host, $allowed) ? $protocol.$host."/" : "";
+}
 
 /*
 |--------------------------------------------------------------------------

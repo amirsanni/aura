@@ -16,7 +16,7 @@ class Testimonials extends CI_Controller{
     
     
     public function index(){
-        $json['curPage'] = "testimonials";
+        $json['curPage'] = "Testimonials";
         $json['pageTitle'] = "Design Aura: Connecting the dots:Testimonials";
         $json['pageContent'] = $this->load->view('testimonials', '', TRUE);
         

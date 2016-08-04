@@ -17,7 +17,7 @@ class Projects extends CI_Controller{
     
     
     public function index(){
-        $json['curPage'] = "projects";
+        $json['curPage'] = "Projects";
         $json['pageTitle'] = "Design Aura: Connecting the dots:Projects";
         $json['pageContent'] = $this->load->view('projects/index', '', TRUE);
         
